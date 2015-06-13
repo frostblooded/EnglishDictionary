@@ -1,0 +1,15 @@
+body {
+	background: url("background_image_2.jpg") no-repeat fixed;
+	background-size: cover;
+}
+
+form {
+	text-align: center;
+	margin-top: 300px;
+}
+
+img {
+	position: absolute;
+	left: 540px;
+	top: 200px;
+}
