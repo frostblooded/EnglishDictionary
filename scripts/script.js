@@ -23,8 +23,7 @@ $(document).ready( function () {
     $(".input").focus();
     
     $('form').submit( function () {
-        $input = $(".input");
-        var input_text = $input.val();
+        var input_text = $(".input").val();
         
         if(ContainsWhitespace(input_text)){
             ShowError("One word please!"); 
@@ -58,7 +57,7 @@ $(document).ready( function () {
                             $($container).append($div);
                         }
 
-                        $(".results").append($container);
+                        $("body").append($container);
                     }
                     catch(error){
                         ShowError("The entered input is invalid or the word doesn't exist in our database!");
