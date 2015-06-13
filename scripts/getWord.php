@@ -1,4 +1,5 @@
 <?php
+
 $word = $_POST["word"];
 
 $json_path = "../gcide/gcide_" . strtolower($word[0]) . "-entries.json";
