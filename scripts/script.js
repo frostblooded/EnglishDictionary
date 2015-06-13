@@ -55,8 +55,6 @@ $(document).ready( function () {
 
                             $div.append("<div class='definition'> Definition: " + $json[i].definition + "</div>");
 
-                            $div.append("<br>");
-
                             $($container).append($div);
                         }
 
