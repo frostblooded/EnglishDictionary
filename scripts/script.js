@@ -3,11 +3,19 @@ var ContainsWhitespace = function (text) {
 }
 
 var ShowError = function(error_message){
-    alert(error_message);
+    ClearArea();
+    
+    $error = $("<div>" + error_message + "</div>");
+    $error.css("color", "red");
+    $(".results").append($error);
     
     $input = $(".input");
     $input.val("");
     $input.focus();
+}
+
+var ClearArea = function(){
+    $(".results").empty();
 }
 
 
@@ -30,11 +38,9 @@ $(document).ready( function () {
                 success: function(response){
                     try{
                         $json = JSON.parse(response);
-
-                        if($(".results").length){ //if it exists
-                            $(".results").remove();
-                        }
-
+                        
+                        ClearArea();
+                        
                         $container = $("<div class='results'></div>");
 
                         for(var i = 0; i < $json.length; i++){
@@ -54,7 +60,7 @@ $(document).ready( function () {
                             $($container).append($div);
                         }
 
-                        $("body").append($container);
+                        $(".results").append($container);
                     }
                     catch(error){
                         ShowError("The entered input is invalid or the word doesn't exist in our database!");
