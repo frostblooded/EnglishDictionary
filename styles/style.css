@@ -5,8 +5,12 @@
 }
 
 .logo{
-    display: block;
-    margin: 0 auto;
+    text-align: center;
+    color: firebrick;
+}
+
+h1{
+    font-size: 50px;    
 }
 
 form{
@@ -34,7 +38,9 @@ form{
 }
 
 .result{
-    margin-bottom: 20px;    
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px dashed darkgrey;
 }
 
 .meaning_text, .part_of_speech_text, .field_text, .definition_text{
