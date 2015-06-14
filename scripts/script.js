@@ -9,7 +9,7 @@ var ContainsWhitespace = function (text) {
 var ShowError = function(error_message){
     ClearArea();
     
-    $error = $("<div>" + error_message + "</div>");
+    $error = $("<div class='error'>" + error_message + "</div>");
     $error.css("color", "red");
     $(".results").append($error);
     
