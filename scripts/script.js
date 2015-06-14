@@ -1,3 +1,7 @@
+var Shhhhh = function(input){
+       return input.toLocaleLowerCase() === "kawaii";
+}
+
 var ContainsWhitespace = function (text) {
     return text.indexOf(" ") !== -1;
 }
@@ -25,49 +29,55 @@ $(document).ready( function () {
     $('form').submit( function () {
         var input_text = $(".input").val();
         
-        if(ContainsWhitespace(input_text)){
-            ShowError("One word please!"); 
+        if(Shhhhh(input_text)){
+            ClearArea();
+            $(".results").append("<img src='https://i.imgur.com/HqsiEct.gif' alt='This will display an animated GIF'/>").css("backround-image", "url(https://i.imgur.com/HqsiEct.gif)");
         }
         else{
-            var formdata = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: "scripts/getWord.php",
-                data: formdata,
-                success: function(response){
-                    try{
-                        $json = JSON.parse(response);
-                        
-                        ClearArea();
-                        
-                        $container = $("<div class='results'></div>");
+        
+            if(ContainsWhitespace(input_text)){
+                ShowError("One word please!"); 
+            }
+            else{
+                var formdata = $(this).serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "scripts/getWord.php",
+                    data: formdata,
+                    success: function(response){
+                        try{
+                            $json = JSON.parse(response);
 
-                        for(var i = 0; i < $json.length; i++){
-                            $div = $("<div class='result'></div>");
+                            ClearArea();
 
-                            $div.append("<div class='meaning'>Meaning " + (i + 1) + ":</div>");
-                            $div.append("<div class='part_of_speech'>Part of speech: " + $json[i].part_of_speech + "</div>");
+                            $result = $("<div class='result'></div>");
 
-                            if($json[i].field != ""){
-                                $div.append("<div class='field'>Field: " + $json[i].field + "</div>");
+                            for(var i = 0; i < $json.length; i++){
+                                $result = $("<div class='result'></div>");
+
+                                $result.append("<div class='meaning'>Meaning " + (i + 1) + ":</div>");
+                                $result.append("<div class='part_of_speech'>Part of speech: " + $json[i].part_of_speech + "</div>");
+
+                                if($json[i].field != ""){
+                                    $result.append("<div class='field'>Field: " + $json[i].field + "</div>");
+                                }
+
+                                $result.append("<div class='definition'> Definition: " + $json[i].definition + "</div>");
+
+                                $(".results").append($result);
                             }
-
-                            $div.append("<div class='definition'> Definition: " + $json[i].definition + "</div>");
-
-                            $($container).append($div);
                         }
-
-                        $("body").append($container);
+                        catch(error){
+                            ShowError("The entered input is invalid or the word doesn't exist in our database!");
+                        }
+                    },
+                    error: function(error){
+                        ShowError("The page is not connected to the server!");
                     }
-                    catch(error){
-                        ShowError("The entered input is invalid or the word doesn't exist in our database!");
-                    }
-                },
-                error: function(error){
-                    alert("WTF");
-                }
-            });
+                });
+            }
         }
+        
         return false;
     });
 });
