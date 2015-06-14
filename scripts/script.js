@@ -54,7 +54,6 @@ $(document).ready( function () {
 
                             for(var i = 0; i < $json.length; i++){
                                 $result = $("<div class='result'></div>");
-
                                 $result.append("<div class='meaning'><span class='meaning_text'>Meaning</span> " + (i + 1) + ":</div>");
                                 $result.append("<div class='part_of_speech'><span class='part_of_speech_text'>Part of speech</span>: " + $json[i].part_of_speech + "</div>");
 
