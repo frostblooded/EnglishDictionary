@@ -19,6 +19,10 @@ form{
     border-radius: 5px;
 }
 
+.input:focus{
+    outline: 0;   
+}
+
 .submit_button{
     width: 15%;
     min-width: 60px;
