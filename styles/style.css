@@ -1,0 +1,46 @@
+.container{
+    width: 60%;
+    margin: 0 auto; 
+    min-width: 350px;
+}
+
+.logo{
+    display: block;
+    margin: 0 auto;
+}
+
+form{
+    text-align: center;
+}
+
+.input{
+    width: 80%;
+    border-radius: 5px;
+}
+
+.submit_button{
+    width: 15%;
+    min-width: 60px;
+    border-radius: 5px;
+}
+
+.results{
+    margin-top: 20px;
+}
+
+.result{
+    margin-bottom: 20px;    
+}
+
+.meaning_text, .part_of_speech_text, .field_text, .definition_text{
+    
+}
+
+.meaning, .part_of_speech, .field ,.definition{
+    text-align: center;
+    margin-top: 5px;
+}
+
+.meaning{
+    font-weight: bold;    
+}
