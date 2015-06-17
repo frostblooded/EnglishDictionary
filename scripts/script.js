@@ -12,14 +12,17 @@ var ShowError = function(error_message){
     $error = $("<div class='error'>" + error_message + "</div>");
     $error.css("color", "red");
     $(".results").append($error);
-    
-    $input = $(".input");
-    $input.val("");
-    $input.focus();
+    ResetInput();
 }
 
 var ClearArea = function(){
     $(".results").empty();
+}
+
+var ResetInput = function(){
+    $input = $(".input");
+    $input.val("");
+    $input.focus();
 }
 
 
@@ -49,21 +52,25 @@ $(document).ready( function () {
 
                             ClearArea();
 
+                            $(".results").append("<div class='searched_word'>Searched word: <span class='searched_word_text'>" + input_text.toUpperCase() + "</span></div>");
+                            
                             $result = $("<div class='result'></div>");
 
                             for(var i = 0; i < $json.length; i++){
                                 $result = $("<div class='result'></div>");
-                                $result.append("<div class='meaning'><span class='meaning_text'>Meaning</span> " + (i + 1) + ":</div>");
-                                $result.append("<div class='part_of_speech'><span class='part_of_speech_text'>Part of speech</span>: " + $json[i].part_of_speech + "</div>");
+                                $result.append("<div class='meaning'>Meaning " + (i + 1) + ":</div>");
+                                $result.append("<div class='part_of_speech'>Part of speech: " + $json[i].part_of_speech + "</div>");
 
                                 if($json[i].field != ""){
-                                    $result.append("<div class='field'><span class='field_text'>Field</span>: " + $json[i].field + "</div>");
+                                    $result.append("<div class='field'>Field: " + $json[i].field + "</div>");
                                 }
 
-                                $result.append("<div class='definition'><span class='definition_text'>Definition</span>: " + $json[i].definition + "</div>");
+                                $result.append("<div class='definition'>Definition: " + $json[i].definition + "</div>");
 
                                 $(".results").append($result);
                             }
+                            
+                            ResetInput();
                         }
                         catch(error){
                             ShowError("The entered input is invalid or the word doesn't exist in our database!");
