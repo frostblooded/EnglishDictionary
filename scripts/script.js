@@ -31,7 +31,7 @@ $(document).ready( function () {
         
         if(Shhhhh(input_text)){
             ClearArea();
-            $(".results").append("<img src='https://i.imgur.com/HqsiEct.gif' alt='This will display an animated GIF' class='secret'/>").css("backround-image", "url(https://i.imgur.com/HqsiEct.gif)");
+            $(".results").append("<img src='styles/secret.gif' alt='This will display an animated GIF' class='secret'/>").css("backround-image", "url(styles/secret.gif)");
         }
         else{
             if(ContainsWhitespace(input_text)){
