@@ -34,7 +34,6 @@ $(document).ready( function () {
             $(".results").append("<img src='https://i.imgur.com/HqsiEct.gif' alt='This will display an animated GIF' class='secret'/>").css("backround-image", "url(https://i.imgur.com/HqsiEct.gif)");
         }
         else{
-        
             if(ContainsWhitespace(input_text)){
                 ShowError("One word please!"); 
             }
