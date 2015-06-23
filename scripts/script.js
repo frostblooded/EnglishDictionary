@@ -71,7 +71,8 @@ $(document).ready(function(){
         
         if(Shhhhh(input_text)){
             ClearArea();
-            $(".results").append("<img src='styles/secret.gif' alt='This will display an animated GIF' class='secret'/>").css("backround-image", "url(styles/secret.gif)");
+            ResetInput();
+            $(".results").append("<img src='styles/secret.gif' alt='easter egg GIF' class='secret'/>").css("backround-image", "url(styles/secret.gif)");
         }
         else{
             var formdata = $(this).serialize();
