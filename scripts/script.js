@@ -1,7 +1,7 @@
 var input_text;
 
 function Shhhhh(input){
-       return input_text.toLocaleLowerCase() === "kawaii";
+       return input_text === "kawaii";
 }
 
 function ShowError(error_message){
@@ -67,7 +67,7 @@ $(document).ready(function(){
     $(".input").focus();
     
     $('form').submit(function(){
-        input_text = $(".input").val();
+        input_text = $(".input").val().toLowerCase();
         
         if(Shhhhh(input_text)){
             ClearArea();
