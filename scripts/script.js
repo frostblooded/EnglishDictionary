@@ -1,7 +1,7 @@
 var input_text;
 
 function Shhhhh(input){
-       return input_text === "kawaii";
+       return input === "pink wizard";
 }
 
 function ShowError(error_message){
@@ -72,7 +72,7 @@ $(document).ready(function(){
         if(Shhhhh(input_text)){
             ClearArea();
             ResetInput();
-            $(".results").append("<img src='styles/secret.gif' alt='easter egg GIF' class='secret'/>").css("backround-image", "url(styles/secret.gif)");
+            $(".results").append("<img src='styles/secret.jpg' alt='pink wizard img' class='secret'/>");
         }
         else{
             var formdata = $(this).serialize();
