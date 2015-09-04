@@ -72,7 +72,8 @@ form{
 }
 
 .error{
-    text-align: center;    
+    text-align: center;
+    color: #E3E3E3;
 }
 
 .secret{

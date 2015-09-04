@@ -6,10 +6,7 @@ function Shhhhh(input){
 
 function ShowError(error_message){
     ClearArea();
-    
-    $error = $("<div class='error'>" + error_message + "</div>");
-    $error.css("color", "#E3E3E3");
-    $(".results").append($error);
+    $(".results").append("<div class='error'>" + error_message + "</div>");
     ResetInput();
 }
 
@@ -30,8 +27,6 @@ function HandleAJAXSuccess(response){
         ClearArea();
 
         $(".results").append("<div class='searched_word'>Searched word: <span class='searched_word_text'>" + input_text.toUpperCase() + "</span></div>");
-
-        $result = $("<div class='result'></div>");
 
         for(var i = 0; i < $json.length; i++){
             $result = $("<div class='result'></div>");
